@@ -12,3 +12,16 @@ It can be verified that the sum of the numbers on the diagonals is 101.
 
 What is the sum of the numbers on the diagonals in a 1001 by 1001 spiral formed in the same way?
 """
+
+#look at it as a sum of boxes of increasing sizes,
+#1,3x3,5x5,etc until 1001x1001
+
+diag_sum = 1
+counter = 2
+
+for i in range(3,1002,2):
+    perim = 4*(i-1)
+    counter = counter + perim
+    diag_sum = diag_sum + 4*counter-6*i+2
+
+print(diag_sum)
