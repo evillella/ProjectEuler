@@ -7,3 +7,16 @@ and the sum of the digits in the number 10! is 3 + 6 + 2 + 8 + 8 + 0 + 0 = 27.
 
 Find the sum of the digits in the number 100!
 """
+
+def factorial(n):
+    if n==1:
+        return n
+    else:
+        return n*factorial(n-1)
+    
+number = str(factorial(100))
+tot = 0
+for d in number:
+    tot+=int(d)
+    
+print(tot)
