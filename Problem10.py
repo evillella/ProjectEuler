@@ -7,15 +7,17 @@ Find the sum of primes below two million.
 primes = []
 def find_primes(n):
     #computes list of primes, returns sum
-    for i in range(2,n+1):
-        #check whether it's prime
-        is_prime = True
-        for p in primes:
-            if int(i/p)*p == i:
-                is_prime = False
-                break
-        if is_prime:
-            primes.append(i)
+    all_nums = set(range(2,n))
+    primes = set()
+    while len(all_nums) > 0:
+        print('length',len(all_nums))
+        i = min(all_nums)
+#        print(i,len(all_nums))
+        # i is prime, remove i and its multiples
+        mults = set([i*n for n in range(1,int(n/i)+1)])
+        all_nums = all_nums - mults
+        primes.add(i)
+    
     #return sum
     sum = 0
     for p in primes:
