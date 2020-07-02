@@ -54,8 +54,9 @@ def show_progress_bar(bar_length, completed, total):
 
 bar_length = 30
 total = 1999
-for i in range(0, total + 1):
-    show_progress_bar(bar_length, i, total)
+#sample use:
+#for i in range(0, total + 1):
+#    show_progress_bar(bar_length, i, total)
 
 def solution():
     max_n = 0
