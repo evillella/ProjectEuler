@@ -13,3 +13,24 @@ Let us list the factors of the first seven triangle numbers:
 We can see that 28 is the first triangle number to have over five divisors.
 What is the value of the first triangle number to have over five hundred divisors?
 """
+
+
+def num_divisors(n):
+    divisors = set()
+    d1 = 1
+    d2 = n
+    while d2 > d1:
+        if d1*d2 == n:
+            divisors.add(d1)
+            divisors.add(d2)
+        d1 += 1
+        d2 = int(n/d1)
+    return len(divisors)
+
+n = 1
+inc = 2
+
+while num_divisors(n) < 500:
+    n = n + inc
+    inc += 1
+print(n)
