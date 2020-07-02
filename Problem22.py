@@ -6,3 +6,42 @@ For example, when the list is sorted into alphabetical order, COLIN, which is wo
 
 What is the total of all the name scores in the file?
 """
+
+file = open('p22data.txt')
+data = ''
+for line in file:
+    data += line
+
+names = data.strip().split(',')
+names = [name.strip('\ "') for name in names]
+
+
+names.sort()
+print(names[0])
+print(names[1])
+
+
+answer = 0
+
+
+d = {L: i for i, L in enumerate('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 1)}
+
+def score(name):
+    tot = 0
+    for letter in name:
+        if letter in d:
+            tot += d[letter]
+        else:
+            print('error:',letter, name)
+    return tot
+
+print(score('COLIN') == 53)
+print(names[937] == 'COLIN')
+print(names[937])
+
+for i, name in enumerate(names, 1):
+    if i == 938:
+        print(name,score(name))
+    answer += i*score(name)
+    
+print(answer)
